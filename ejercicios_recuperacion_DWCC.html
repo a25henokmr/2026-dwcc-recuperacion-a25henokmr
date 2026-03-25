@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios de Recuperación - DWCC</title>
+<style>
+  :root { --accent: #2563eb; --bg: #f8fafc; --card: #fff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --code-bg: #f1f5f9; --green: #16a34a; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 2rem 1rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 2rem; color: var(--accent); margin-bottom: .5rem; }
+  .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+  .toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; }
+  .toc h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+  .toc ol { padding-left: 1.5rem; }
+  .toc li { margin-bottom: .4rem; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .week { margin-bottom: 3rem; }
+  .week-header { background: var(--accent); color: #fff; padding: .8rem 1.5rem; border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center; }
+  .week-header h2 { font-size: 1.15rem; font-weight: 600; }
+  .week-header .dates { font-size: .9rem; opacity: .85; }
+  .week-body { background: var(--card); border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; padding: 1.5rem; }
+  .unit-tag { display: inline-block; background: #dbeafe; color: var(--accent); font-size: .8rem; font-weight: 600; padding: .2rem .7rem; border-radius: 20px; margin-bottom: 1rem; }
+  .exercise { margin-bottom: 1.8rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border); }
+  .exercise:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exercise h3 { font-size: 1rem; margin-bottom: .5rem; color: var(--text); }
+  .exercise h3 .num { color: var(--accent); font-weight: 700; }
+  .exercise p, .exercise ul { margin-bottom: .6rem; }
+  .exercise ul { padding-left: 1.5rem; }
+  .exercise li { margin-bottom: .3rem; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; overflow-x: auto; font-size: .88rem; margin: .7rem 0; }
+  code { font-family: 'Fira Code', 'Consolas', monospace; font-size: .88rem; }
+  p code { background: var(--code-bg); padding: .1rem .4rem; border-radius: 4px; }
+  .difficulty { display: inline-block; font-size: .75rem; font-weight: 600; padding: .15rem .5rem; border-radius: 12px; margin-left: .5rem; }
+  .easy { background: #dcfce7; color: #166534; }
+  .medium { background: #fef3c7; color: #92400e; }
+  .hard { background: #fce7f3; color: #9d174d; }
+  .tip { background: #fffbeb; border-left: 4px solid #f59e0b; padding: .8rem 1rem; border-radius: 0 8px 8px 0; margin: .7rem 0; font-size: .9rem; }
+  @media (max-width: 600px) { body { padding: 1rem .5rem; } .week-header { flex-direction: column; gap: .3rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📚 Ejercicios de Recuperación — DWCC</h1>
+<p class="subtitle">Desenvolvemento Web en Contorno Cliente · Plan de ejercicios semana a semana (febrero – junio 2026)</p>
+
+<div class="toc">
+<h2>📋 Índice de Unidades</h2>
+<ol>
+  <li><a href="#s1">Semanas 1-2: Git + Herramientas + Sintaxis JS</a> (23 feb – 6 mar)</li>
+  <li><a href="#s3">Semana 3: Objetos JS</a> (2 – 6 mar)</li>
+  <li><a href="#s4">Semana 4: Funciones</a> (9 – 13 mar)</li>
+  <li><a href="#s5">Semanas 5-6: DOM</a> (16 – 27 mar)</li>
+  <li><a href="#s7">Semanas 7-8: Eventos, Formularios, Web Storage, Leaflet</a> (7 – 17 abr)</li>
+  <li><a href="#s9">Semanas 9-10: Programación Asíncrona</a> (20 – 30 abr)</li>
+  <li><a href="#s11">Semana 11: Módulos y Herramientas de ensamblaje</a> (4 – 8 may)</li>
+  <li><a href="#s12">Semanas 12-15: Vue + Componentes Vue</a> (11 may – 3 jun)</li>
+</ol>
+</div>
+
+<!-- =============== SEMANAS 1-2 =============== -->
+<div class="week" id="s1">
+<div class="week-header">
+  <h2>Semanas 1-2: Git · Herramientas · JavaScript Sintaxis</h2>
+  <span class="dates">23 feb – 6 mar</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Git</span>
+
+<div class="exercise">
+<h3><span class="num">1.1</span> Flujo básico de Git <span class="difficulty easy">Fácil</span></h3>
+<p>Crea un repositorio local llamado <code>practica-git</code>. Realiza las siguientes operaciones y anota los comandos usados:</p>
+<ul>
+  <li>Inicializa el repositorio con <code>git init</code>.</li>
+  <li>Crea un archivo <code>index.html</code> con una estructura HTML básica.</li>
+  <li>Añade el archivo al staging area y haz un commit con el mensaje "Primer commit".</li>
+  <li>Crea un archivo <code>.gitignore</code> que ignore archivos <code>.log</code> y la carpeta <code>node_modules/</code>.</li>
+  <li>Conecta el repositorio local con un repositorio remoto en GitHub y sube los cambios.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.2</span> Ramas y fusión <span class="difficulty medium">Media</span></h3>
+<p>Partiendo de un repositorio con al menos un commit en la rama <code>main</code>:</p>
+<ul>
+  <li>Crea una rama llamada <code>feature-header</code> y cámbiate a ella.</li>
+  <li>Modifica <code>index.html</code> añadiendo un <code>&lt;header&gt;</code>. Haz commit.</li>
+  <li>Vuelve a <code>main</code> y modifica <code>index.html</code> añadiendo un <code>&lt;footer&gt;</code> (en zona distinta). Haz commit.</li>
+  <li>Fusiona <code>feature-header</code> en <code>main</code>. ¿Se produce fast-forward o fusión automática? ¿Por qué?</li>
+  <li>Elimina la rama <code>feature-header</code>.</li>
+  <li>Visualiza el historial con <code>git log --oneline --graph --decorate --all</code> y explica el resultado.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.3</span> Resolución de conflictos <span class="difficulty medium">Media</span></h3>
+<p>Provoca un conflicto de fusión intencionadamente:</p>
+<ul>
+  <li>Crea una rama <code>conflict-branch</code>. Modifica la línea 5 de un archivo. Haz commit.</li>
+  <li>Vuelve a <code>main</code>. Modifica la misma línea 5 del mismo archivo con contenido distinto. Haz commit.</li>
+  <li>Intenta fusionar. Resuelve el conflicto manualmente en el editor.</li>
+  <li>Completa la fusión con <code>git add</code> y <code>git commit</code>.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.4</span> Stash y etiquetas <span class="difficulty easy">Fácil</span></h3>
+<ul>
+  <li>Modifica un archivo sin hacer commit. Guarda los cambios con <code>git stash</code>.</li>
+  <li>Comprueba que el directorio de trabajo está limpio con <code>git status</code>.</li>
+  <li>Haz otro cambio, haz commit, y después recupera el stash con <code>git stash pop</code>.</li>
+  <li>Crea una etiqueta anotada <code>v1.0</code> con el mensaje "Primera versión estable".</li>
+</ul>
+</div>
+
+<span class="unit-tag">JavaScript — Sintaxis</span>
+
+<div class="exercise">
+<h3><span class="num">1.5</span> Variables y tipos de datos <span class="difficulty easy">Fácil</span></h3>
+<p>Sin ejecutar el código, predice el resultado de cada <code>console.log</code>. Después comprueba en la consola:</p>
+<pre><code>let a = 10;
+const b = '20';
+var c = true;
+
+console.log(typeof a);
+console.log(typeof b);
+console.log(typeof c);
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof [1, 2, 3]);
+console.log(typeof { name: 'Ana' });
+
+let x = 5;
+let y = x;
+y = 10;
+console.log(x, y);
+
+let obj1 = { name: 'Ana' };
+let obj2 = obj1;
+obj2.name = 'Bea';
+console.log(obj1.name, obj2.name);</code></pre>
+<div class="tip">💡 Recuerda la diferencia entre tipos primitivos (se copian por valor) y objetos (se copian por referencia).</div>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.6</span> Conversión de tipos <span class="difficulty medium">Media</span></h3>
+<p>Predice el resultado de cada expresión y explica por qué:</p>
+<pre><code>console.log('5' + 3);
+console.log('5' - 3);
+console.log('5' * '2');
+console.log(true + true);
+console.log('number' + 15 + 3);
+console.log(15 + 3 + 'number');
+console.log(Boolean(0));
+console.log(Boolean(''));
+console.log(Boolean('0'));
+console.log(Boolean(' '));
+console.log(Number(null));
+console.log(Number(undefined));
+console.log(Number(''));
+console.log(Number('abc'));</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.7</span> Operadores y comparaciones <span class="difficulty medium">Media</span></h3>
+<p>Indica el resultado (<code>true</code> o <code>false</code>) y explica la diferencia entre <code>==</code> y <code>===</code>:</p>
+<pre><code>console.log(5 == '5');
+console.log(5 === '5');
+console.log(null == undefined);
+console.log(null === undefined);
+console.log(NaN == NaN);
+console.log(0 == false);
+console.log('' == false);
+console.log('' === false);</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.8</span> Estructuras de control <span class="difficulty easy">Fácil</span></h3>
+<p>Escribe las siguientes funciones:</p>
+<ul>
+  <li><code>esPar(n)</code>: devuelve <code>true</code> si <code>n</code> es par.</li>
+  <li><code>fizzBuzz(n)</code>: imprime los números del 1 a n. Si es múltiplo de 3, imprime "Fizz"; de 5, "Buzz"; de ambos, "FizzBuzz".</li>
+  <li><code>factorial(n)</code>: devuelve el factorial de n usando un bucle <code>for</code>.</li>
+  <li><code>sumDigits(n)</code>: devuelve la suma de los dígitos de un número entero positivo.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">1.9</span> Operadores avanzados <span class="difficulty hard">Difícil</span></h3>
+<p>Explica y demuestra con ejemplos el comportamiento de:</p>
+<ul>
+  <li>Operador de coalescencia nula (<code>??</code>) vs operador OR (<code>||</code>).</li>
+  <li>Encadenamiento opcional (<code>?.</code>).</li>
+  <li>Asignación lógica AND (<code>&&=</code>), OR (<code>||=</code>) y coalescencia nula (<code>??=</code>).</li>
+</ul>
+<pre><code>// Ejemplo: ¿cuál es la diferencia?
+let count = 0;
+console.log(count || 42);  // ?
+console.log(count ?? 42);  // ?
+
+const user = { address: { city: 'Santiago' } };
+console.log(user.address?.city);    // ?
+console.log(user.phone?.number);    // ?</code></pre>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANA 3: OBJETOS =============== -->
+<div class="week" id="s3">
+<div class="week-header">
+  <h2>Semana 3: Objetos JavaScript</h2>
+  <span class="dates">2 – 6 mar</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Objetos</span>
+
+<div class="exercise">
+<h3><span class="num">2.1</span> Strings: métodos esenciales <span class="difficulty easy">Fácil</span></h3>
+<p>Dado el siguiente string, realiza las operaciones indicadas:</p>
+<pre><code>const cadea = 'desenvolvemento web en contorno cliente';
+
+// a) Convierte la primera letra a mayúscula
+// b) Cuenta cuántas veces aparece la letra 'e'
+// c) Divide la cadena en un array de palabras
+// d) Obtén las palabras que tengan más de 5 caracteres
+// e) Reemplaza 'cliente' por 'servidor'
+// f) Comprueba si la cadena empieza por 'des'</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.2</span> Función reverseString <span class="difficulty easy">Fácil</span></h3>
+<p>Crea una función <code>reverseString(str)</code> que devuelva la cadena invertida. Impleméntala de dos formas:</p>
+<ul>
+  <li>Usando <code>split</code>, <code>reverse</code> y <code>join</code>.</li>
+  <li>Usando un bucle <code>for</code>.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.3</span> Template literals <span class="difficulty easy">Fácil</span></h3>
+<p>Usa template literals (backticks) para crear una función <code>createCard(name, age, city)</code> que devuelva un string HTML como:</p>
+<pre><code>&lt;div class="card"&gt;
+  &lt;h2&gt;Ana&lt;/h2&gt;
+  &lt;p&gt;Edad: 25 años&lt;/p&gt;
+  &lt;p&gt;Ciudad: Santiago&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.4</span> Números y Math <span class="difficulty easy">Fácil</span></h3>
+<p>Escribe las siguientes funciones usando el objeto <code>Math</code>:</p>
+<ul>
+  <li><code>randomInt(min, max)</code>: devuelve un entero aleatorio entre min y max (ambos incluidos).</li>
+  <li><code>roundToDecimals(num, decimals)</code>: redondea un número a n decimales.</li>
+  <li><code>hypotenuse(a, b)</code>: calcula la hipotenusa de un triángulo rectángulo.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.5</span> Objetos: creación y acceso <span class="difficulty medium">Media</span></h3>
+<p>Crea un objeto <code>student</code> con las propiedades: <code>name</code>, <code>age</code>, <code>grades</code> (array de números), y los métodos:</p>
+<ul>
+  <li><code>getAverage()</code>: devuelve la media de las notas.</li>
+  <li><code>getHighest()</code>: devuelve la nota más alta.</li>
+  <li><code>isPassing()</code>: devuelve <code>true</code> si la media es >= 5.</li>
+  <li><code>addGrade(grade)</code>: añade una nota al array.</li>
+</ul>
+<pre><code>const student = {
+  name: 'Ada',
+  age: 22,
+  grades: [7, 5, 8, 6, 9],
+  // Implementa los métodos aquí
+};</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.6</span> Desestructuración y spread <span class="difficulty medium">Media</span></h3>
+<p>Practica la desestructuración de objetos y arrays:</p>
+<pre><code>// a) Extrae name y age en variables separadas
+const person = { name: 'Carlos', age: 30, city: 'Vigo' };
+
+// b) Usa renombrado para extraer 'name' como 'nombre'
+
+// c) Usa valores por defecto para una propiedad que no existe
+
+// d) Desestructura este array
+const colors = ['rojo', 'verde', 'azul', 'amarillo'];
+// Obtén el primero y el tercero, ignora el segundo
+
+// e) Usa spread para crear una copia del objeto person
+//    y añadir la propiedad email
+
+// f) Usa spread para fusionar dos arrays</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.7</span> Arrays: métodos esenciales <span class="difficulty medium">Media</span></h3>
+<p>Dado el siguiente array, realiza las operaciones:</p>
+<pre><code>const products = [
+  { name: 'Laptop', price: 999, category: 'electronics' },
+  { name: 'Book', price: 15, category: 'education' },
+  { name: 'Phone', price: 699, category: 'electronics' },
+  { name: 'Pen', price: 2, category: 'office' },
+  { name: 'Tablet', price: 450, category: 'electronics' },
+  { name: 'Notebook', price: 5, category: 'office' },
+];
+
+// a) Encuentra el producto más caro (sin filter/map/reduce)
+// b) Comprueba si todos los productos cuestan más de 1€
+// c) Comprueba si algún producto pertenece a 'education'
+// d) Encuentra el primer producto de menos de 10€
+// e) Obtén un array solo con los nombres de los productos
+// f) Obtén la suma total de todos los precios
+// g) Agrupa los productos por categoría en un objeto</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">2.8</span> Date y JSON <span class="difficulty easy">Fácil</span></h3>
+<ul>
+  <li>Crea un objeto Date con la fecha actual. Muestra día, mes, año, hora, minutos y segundos.</li>
+  <li>Calcula cuántos días faltan para el 1 de junio de 2026.</li>
+  <li>Convierte un objeto a JSON con <code>JSON.stringify()</code> y de vuelta con <code>JSON.parse()</code>.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANA 4: FUNCIONES =============== -->
+<div class="week" id="s4">
+<div class="week-header">
+  <h2>Semana 4: Funciones</h2>
+  <span class="dates">9 – 13 mar</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Funciones</span>
+
+<div class="exercise">
+<h3><span class="num">3.1</span> Tipos de funciones <span class="difficulty easy">Fácil</span></h3>
+<p>Implementa la función <code>calcularIMC(peso, altura)</code> de tres formas diferentes:</p>
+<ul>
+  <li>Declaración de función (function declaration).</li>
+  <li>Expresión de función (function expression).</li>
+  <li>Función flecha (arrow function).</li>
+</ul>
+<p>La función debe devolver el IMC = peso / (altura²).</p>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.2</span> Parámetros: rest y spread <span class="difficulty medium">Media</span></h3>
+<pre><code>// a) Crea una función 'sum' que acepte cualquier cantidad de
+//    argumentos numéricos y devuelva su suma (usa ...rest)
+
+// b) Crea una función 'max' que reciba cualquier cantidad de
+//    números y devuelva el mayor
+
+// c) Dado este array, llama a la función sum usando spread
+const numbers = [4, 8, 15, 16, 23, 42];
+
+// d) Crea una función 'createUser' con parámetros por defecto:
+//    name = 'Anónimo', role = 'user'</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.3</span> Arrow functions y this <span class="difficulty hard">Difícil</span></h3>
+<p>Explica la diferencia de <code>this</code> en funciones normales y arrow functions. Predice la salida:</p>
+<pre><code>const counter = {
+  count: 0,
+  incrementNormal: function() {
+    setTimeout(function() {
+      this.count++;
+      console.log('Normal:', this.count);
+    }, 100);
+  },
+  incrementArrow: function() {
+    setTimeout(() => {
+      this.count++;
+      console.log('Arrow:', this.count);
+    }, 100);
+  }
+};
+
+counter.incrementNormal();  // ¿Qué imprime?
+counter.incrementArrow();   // ¿Qué imprime?</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.4</span> Métodos iterativos de arrays <span class="difficulty medium">Media</span></h3>
+<p>Dado el array de estudiantes, resuelve usando <code>forEach</code>, <code>filter</code>, <code>map</code> y <code>reduce</code>:</p>
+<pre><code>const students = [
+  { name: 'Ana', grade: 8.5 },
+  { name: 'Bea', grade: 4.2 },
+  { name: 'Carlos', grade: 6.0 },
+  { name: 'Diana', grade: 9.1 },
+  { name: 'Eva', grade: 3.5 },
+  { name: 'Felipe', grade: 7.8 },
+];
+
+// a) Imprime el nombre de cada estudiante (forEach)
+// b) Obtén solo los aprobados (grade >= 5) (filter)
+// c) Obtén un array con los nombres en mayúsculas (map)
+// d) Calcula la nota media de la clase (reduce)
+// e) Obtén el nombre del estudiante con la nota más alta (reduce)
+// f) Encadena: de los aprobados, obtén sus nombres ordenados
+//    alfabéticamente</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.5</span> sort y más métodos <span class="difficulty medium">Media</span></h3>
+<pre><code>const nums = [10, 5, 8, 1, 7, 2, 6, 3, 9, 4];
+
+// a) Ordena de menor a mayor
+// b) Ordena de mayor a menor
+// c) Ordena las siguientes palabras por longitud
+const words = ['casa', 'elefante', 'sol', 'programación', 'web'];
+
+// d) Ordena los productos por precio (ascendente)
+const items = [
+  { name: 'A', price: 30 },
+  { name: 'B', price: 10 },
+  { name: 'C', price: 25 },
+];</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.6</span> Expresiones regulares <span class="difficulty hard">Difícil</span></h3>
+<p>Crea funciones que validen los siguientes formatos usando expresiones regulares:</p>
+<ul>
+  <li><code>isValidEmail(email)</code>: formato básico (contiene @ y dominio con punto).</li>
+  <li><code>isValidPhone(phone)</code>: 9 dígitos, puede empezar con +34.</li>
+  <li><code>isValidPassword(pwd)</code>: mínimo 8 caracteres, al menos una mayúscula, una minúscula y un número.</li>
+  <li><code>extractHashtags(text)</code>: extrae todos los hashtags (#palabra) de un texto.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">3.7</span> Closures y funciones de orden superior <span class="difficulty hard">Difícil</span></h3>
+<pre><code>// a) Crea una función 'counter()' que devuelva una función.
+// Cada vez que se llame a la función devuelta, debe incrementar
+// y devolver un contador interno.
+const count = counter();
+console.log(count()); // 1
+console.log(count()); // 2
+console.log(count()); // 3
+
+// b) Crea una función 'multiplier(factor)' que devuelva
+// una función que multiplique su argumento por factor
+const double = multiplier(2);
+const triple = multiplier(3);
+console.log(double(5));  // 10
+console.log(triple(5));  // 15</code></pre>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANAS 5-6: DOM =============== -->
+<div class="week" id="s5">
+<div class="week-header">
+  <h2>Semanas 5-6: DOM</h2>
+  <span class="dates">16 – 27 mar</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">DOM</span>
+
+<div class="exercise">
+<h3><span class="num">4.1</span> Acceso a nodos <span class="difficulty easy">Fácil</span></h3>
+<p>Crea un archivo HTML con la siguiente estructura y practica el acceso a nodos:</p>
+<pre><code>&lt;div id="app"&gt;
+  &lt;h1 class="title"&gt;Mi página&lt;/h1&gt;
+  &lt;ul id="lista"&gt;
+    &lt;li class="item"&gt;Elemento 1&lt;/li&gt;
+    &lt;li class="item active"&gt;Elemento 2&lt;/li&gt;
+    &lt;li class="item"&gt;Elemento 3&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class="description"&gt;Texto de &lt;strong&gt;ejemplo&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// a) Selecciona el h1 por id, clase y tagName
+// b) Selecciona todos los li con querySelectorAll
+// c) Selecciona el li con clase 'active'
+// d) ¿Qué diferencia hay entre NodeList y HTMLCollection?
+// e) Accede al texto del elemento strong
+&lt;/script&gt;</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">4.2</span> Recorrido del DOM <span class="difficulty medium">Media</span></h3>
+<p>Usando el HTML del ejercicio anterior, accede a los siguientes nodos usando propiedades de recorrido:</p>
+<ul>
+  <li>Desde el <code>ul</code>, accede al primer hijo y al último hijo (element).</li>
+  <li>Desde el segundo <code>li</code>, accede al anterior y al siguiente hermano.</li>
+  <li>Desde el <code>strong</code>, accede al padre y al abuelo.</li>
+  <li>Obtén el número de hijos del <code>ul</code> con <code>children.length</code> y <code>childNodes.length</code>. ¿Por qué son diferentes?</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">4.3</span> Crear y eliminar elementos <span class="difficulty medium">Media</span></h3>
+<p>Escribe JavaScript que:</p>
+<ul>
+  <li>Cree un nuevo <code>&lt;li&gt;</code> con el texto "Elemento 4" y lo añada al final de la lista.</li>
+  <li>Cree un <code>&lt;li&gt;</code> con el texto "Elemento 0" y lo inserte al principio de la lista.</li>
+  <li>Elimine el <code>&lt;li&gt;</code> con clase <code>active</code>.</li>
+  <li>Clone la lista <code>ul</code> completa y la añada después del párrafo.</li>
+</ul>
+<div class="tip">💡 Usa <code>createElement</code>, <code>textContent</code>, <code>appendChild</code>, <code>prepend</code>, <code>remove</code>, <code>cloneNode</code>.</div>
+</div>
+
+<div class="exercise">
+<h3><span class="num">4.4</span> innerHTML vs createElement <span class="difficulty medium">Media</span></h3>
+<p>Crea una tabla HTML con datos de productos usando dos métodos:</p>
+<ul>
+  <li>Con <code>innerHTML</code>: genera el HTML como string.</li>
+  <li>Con <code>createElement</code>: crea cada elemento programáticamente.</li>
+</ul>
+<pre><code>const products = [
+  { name: 'Laptop', price: 999, stock: 5 },
+  { name: 'Mouse', price: 25, stock: 50 },
+  { name: 'Monitor', price: 350, stock: 12 },
+];
+// Genera una tabla con columnas: Nombre, Precio, Stock</code></pre>
+<p>¿Cuál método es más seguro frente a ataques XSS? ¿Por qué?</p>
+</div>
+
+<div class="exercise">
+<h3><span class="num">4.5</span> Estilos y clases <span class="difficulty medium">Media</span></h3>
+<pre><code>// a) Cambia el color de fondo del h1 a azul usando style
+// b) Añade la clase 'highlighted' al primer li
+// c) Alterna (toggle) la clase 'active' en todos los li
+// d) Comprueba si el segundo li tiene la clase 'active'
+// e) Modifica los estilos del párrafo: 
+//    color rojo, tamaño de fuente 20px, negrita
+// f) Lee el estilo computado del h1 (getComputedStyle)</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">4.6</span> Proyecto: Lista de tareas (solo DOM) <span class="difficulty hard">Difícil</span></h3>
+<p>Crea una aplicación de lista de tareas usando solo manipulación del DOM:</p>
+<ul>
+  <li>Un input para escribir la tarea y un botón para añadir.</li>
+  <li>Cada tarea se muestra en un <code>&lt;li&gt;</code> con un botón para eliminarla y un checkbox para marcarla como completada.</li>
+  <li>Las tareas completadas deben tener un estilo tachado.</li>
+  <li>Un contador que muestre "X tareas pendientes".</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANAS 7-8: EVENTOS =============== -->
+<div class="week" id="s7">
+<div class="week-header">
+  <h2>Semanas 7-8: Eventos · Formularios · Web Storage · Leaflet</h2>
+  <span class="dates">7 – 17 abr</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Eventos</span>
+
+<div class="exercise">
+<h3><span class="num">5.1</span> addEventListener y objeto evento <span class="difficulty easy">Fácil</span></h3>
+<p>Crea una página con un botón y un div de salida. Implementa:</p>
+<ul>
+  <li>Al hacer clic en el botón, muestra las coordenadas del ratón (clientX, clientY).</li>
+  <li>Al pulsar una tecla, muestra en el div qué tecla se pulsó (<code>event.key</code>).</li>
+  <li>Al mover el ratón sobre el div, cambia su color de fondo.</li>
+  <li>Explica la diferencia entre <code>onclick</code> (propiedad) y <code>addEventListener</code>.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">5.2</span> Propagación y delegación <span class="difficulty hard">Difícil</span></h3>
+<pre><code>&lt;div id="outer"&gt;
+  &lt;div id="inner"&gt;
+    &lt;button id="btn"&gt;Click me&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+// a) Añade listeners de click a los tres elementos.
+//    ¿En qué orden se ejecutan? (bubbling)
+
+// b) Usa event.stopPropagation() en el inner div.
+//    ¿Qué cambia?
+
+// c) Implementa delegación de eventos: en lugar de poner
+//    un listener en cada li de una lista, pon uno solo
+//    en el ul y detecta en cuál li se hizo clic.</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">5.3</span> preventDefault <span class="difficulty easy">Fácil</span></h3>
+<ul>
+  <li>Crea un enlace <code>&lt;a href="https://google.com"&gt;</code> y evita la navegación con <code>preventDefault()</code>. Muestra un alert en su lugar.</li>
+  <li>Crea un formulario y evita el envío por defecto. En su lugar, muestra los datos en consola.</li>
+</ul>
+</div>
+
+<span class="unit-tag">Formularios</span>
+
+<div class="exercise">
+<h3><span class="num">5.4</span> Validación de formularios <span class="difficulty medium">Media</span></h3>
+<p>Crea un formulario de registro con los campos: nombre, email, contraseña y confirmar contraseña. Implementa:</p>
+<ul>
+  <li>Validación en tiempo real (evento <code>input</code>): muestra mensajes de error al lado de cada campo.</li>
+  <li>El nombre debe tener al menos 3 caracteres.</li>
+  <li>El email debe tener formato válido.</li>
+  <li>La contraseña debe tener mínimo 8 caracteres con mayúsculas, minúsculas y números.</li>
+  <li>Las contraseñas deben coincidir.</li>
+  <li>El botón de envío debe estar deshabilitado hasta que todo sea válido.</li>
+</ul>
+</div>
+
+<span class="unit-tag">Web Storage</span>
+
+<div class="exercise">
+<h3><span class="num">5.5</span> localStorage y sessionStorage <span class="difficulty medium">Media</span></h3>
+<ul>
+  <li>Guarda en <code>localStorage</code> un objeto con preferencias del usuario (tema, idioma, tamaño de fuente). Recupéralas al cargar la página.</li>
+  <li>¿Qué diferencia hay entre <code>localStorage</code> y <code>sessionStorage</code>?</li>
+  <li>¿Qué métodos principales tienen? (<code>setItem</code>, <code>getItem</code>, <code>removeItem</code>, <code>clear</code>)</li>
+  <li>¿Qué tipo de datos se pueden almacenar? ¿Cómo almacenar un objeto?</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">5.6</span> Proyecto: Lista de la compra <span class="difficulty hard">Difícil</span></h3>
+<p>Crea una aplicación de lista de la compra con las siguientes funcionalidades:</p>
+<ul>
+  <li>Añadir productos (nombre y cantidad).</li>
+  <li>Marcar productos como comprados.</li>
+  <li>Eliminar productos.</li>
+  <li>Persistencia con <code>localStorage</code>: la lista se mantiene al recargar la página.</li>
+  <li>Botón para limpiar toda la lista.</li>
+  <li>Contador de productos pendientes / comprados.</li>
+</ul>
+</div>
+
+<span class="unit-tag">Leaflet</span>
+
+<div class="exercise">
+<h3><span class="num">5.7</span> Mapa con Leaflet <span class="difficulty medium">Media</span></h3>
+<p>Crea una página con un mapa interactivo usando la librería Leaflet:</p>
+<ul>
+  <li>Muestra un mapa centrado en tu ciudad.</li>
+  <li>Añade al menos 3 marcadores con popups informativos.</li>
+  <li>Al hacer clic en el mapa, muestra un popup con las coordenadas.</li>
+  <li>Añade un polígono o polilínea entre varios puntos.</li>
+</ul>
+<div class="tip">💡 Incluye Leaflet con CDN: CSS y JS de <code>unpkg.com/leaflet</code></div>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANAS 9-10: ASYNC =============== -->
+<div class="week" id="s9">
+<div class="week-header">
+  <h2>Semanas 9-10: Programación Asíncrona</h2>
+  <span class="dates">20 – 30 abr</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Programación asíncrona</span>
+
+<div class="exercise">
+<h3><span class="num">6.1</span> setTimeout y setInterval <span class="difficulty easy">Fácil</span></h3>
+<ul>
+  <li>Usa <code>setTimeout</code> para mostrar un mensaje después de 3 segundos.</li>
+  <li>Crea un cronómetro con <code>setInterval</code> que muestre los segundos transcurridos en la página. Añade botones para iniciar, pausar y reiniciar.</li>
+  <li>Explica qué es el callback hell y por qué es un problema.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">6.2</span> Promesas <span class="difficulty medium">Media</span></h3>
+<pre><code>// a) Crea una función que devuelva una promesa que se
+//    resuelva después de n milisegundos
+function delay(ms) {
+  // Tu código aquí
+}
+
+delay(2000).then(() => console.log('Han pasado 2 segundos'));
+
+// b) Crea una función 'loadData' que simule una llamada
+//    a un servidor: 50% de probabilidad de éxito,
+//    resuelta en 1 segundo. Usa .then() y .catch()
+
+// c) Encadena 3 promesas: cada una espera 1 segundo
+//    y muestra un mensaje diferente
+
+// d) Usa Promise.all para ejecutar 3 delay() en paralelo
+//    y medir cuánto tardan en total</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">6.3</span> fetch API <span class="difficulty medium">Media</span></h3>
+<p>Usa la API de JSONPlaceholder (<code>https://jsonplaceholder.typicode.com</code>):</p>
+<ul>
+  <li>Haz un GET a <code>/users</code> y muestra la lista de usuarios en una tabla HTML.</li>
+  <li>Haz un GET a <code>/posts?userId=1</code> y muestra los posts del usuario 1.</li>
+  <li>Haz un POST a <code>/posts</code> enviando un nuevo post con title y body.</li>
+  <li>Implementa manejo de errores: ¿qué pasa si la URL no existe? ¿Y si no hay conexión?</li>
+</ul>
+<div class="tip">💡 Recuerda: <code>fetch</code> solo rechaza la promesa si hay un error de red. Un 404 NO lanza error automáticamente.</div>
+</div>
+
+<div class="exercise">
+<h3><span class="num">6.4</span> async/await <span class="difficulty medium">Media</span></h3>
+<p>Reescribe los ejercicios 6.2 y 6.3 usando <code>async/await</code> con <code>try/catch</code> para el manejo de errores.</p>
+<pre><code>// Ejemplo de estructura:
+async function getUsers() {
+  try {
+    const response = await fetch('...');
+    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+    const data = await response.json();
+    // usar los datos
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">6.5</span> Proyecto: Buscador de usuarios <span class="difficulty hard">Difícil</span></h3>
+<p>Crea una aplicación que:</p>
+<ul>
+  <li>Tenga un input de búsqueda y un área de resultados.</li>
+  <li>Al escribir, busque usuarios en la API <code>https://jsonplaceholder.typicode.com/users</code>.</li>
+  <li>Filtre los resultados por nombre o email.</li>
+  <li>Al clicar en un usuario, muestre sus posts en una sección aparte.</li>
+  <li>Muestre un indicador de carga (spinner) mientras se obtienen los datos.</li>
+  <li>Maneje errores mostrando un mensaje al usuario.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANA 11: MÓDULOS =============== -->
+<div class="week" id="s11">
+<div class="week-header">
+  <h2>Semana 11: Módulos y Herramientas de ensamblaje</h2>
+  <span class="dates">4 – 8 may</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Módulos</span>
+
+<div class="exercise">
+<h3><span class="num">7.1</span> ES Modules: export e import <span class="difficulty easy">Fácil</span></h3>
+<p>Refactoriza el siguiente código monolítico en módulos separados:</p>
+<pre><code>// Crea estos archivos:
+// utils.js    → funciones: capitalize, formatDate, randomId
+// api.js      → funciones: getUsers, getPostsByUser
+// dom.js      → funciones: renderTable, showError, showLoading
+// app.js      → importa todo y conecta la lógica
+
+// En el HTML usa: &lt;script type="module" src="app.js"&gt;</code></pre>
+<p>Practica: export con nombre, export default, importación con alias.</p>
+</div>
+
+<div class="exercise">
+<h3><span class="num">7.2</span> Diferencias entre módulos <span class="difficulty easy">Fácil</span></h3>
+<p>Responde a las siguientes preguntas:</p>
+<ul>
+  <li>¿Qué diferencia hay entre CommonJS y ES Modules?</li>
+  <li>¿Qué pasa si intentas usar <code>import</code> sin <code>type="module"</code> en el <code>&lt;script&gt;</code>?</li>
+  <li>¿Qué es CORS y por qué afecta a los módulos ES?</li>
+  <li>¿Qué son las import maps y para qué sirven?</li>
+  <li>¿Qué significa <code>await</code> de nivel superior en módulos?</li>
+</ul>
+</div>
+
+<span class="unit-tag">Herramientas de ensamblaje</span>
+
+<div class="exercise">
+<h3><span class="num">7.3</span> NPM y Vite <span class="difficulty medium">Media</span></h3>
+<ul>
+  <li>Inicializa un proyecto con <code>npm init</code>. Explica para qué sirve <code>package.json</code>.</li>
+  <li>Instala una dependencia (p.ej. <code>dayjs</code>) y úsala en tu código.</li>
+  <li>¿Qué diferencia hay entre <code>dependencies</code> y <code>devDependencies</code>?</li>
+  <li>Crea un proyecto con Vite: <code>npm create vite@latest mi-proyecto</code>. Explora la estructura de archivos.</li>
+  <li>¿Para qué sirve un bundler? ¿Qué ventajas tiene Vite sobre Webpack?</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- =============== SEMANAS 12-15: VUE =============== -->
+<div class="week" id="s12">
+<div class="week-header">
+  <h2>Semanas 12-15: Vue + Componentes Vue</h2>
+  <span class="dates">11 may – 3 jun</span>
+</div>
+<div class="week-body">
+
+<span class="unit-tag">Vue — Fundamentos</span>
+
+<div class="exercise">
+<h3><span class="num">8.1</span> Primera aplicación Vue <span class="difficulty easy">Fácil</span></h3>
+<p>Crea una aplicación Vue con Vite que muestre:</p>
+<ul>
+  <li>Un título reactivo que cambie al pulsar un botón.</li>
+  <li>Un contador con botones para incrementar y decrementar.</li>
+  <li>Un input que muestre en tiempo real lo que se escribe (two-way binding con <code>v-model</code>).</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+import { ref } from 'vue';
+
+const count = ref(0);
+const message = ref('Hola Vue!');
+// Implementa la lógica
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- Implementa la interfaz --&gt;
+&lt;/template&gt;</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.2</span> Directivas Vue <span class="difficulty medium">Media</span></h3>
+<p>Practica las directivas principales de Vue:</p>
+<pre><code>// Crea una aplicación que tenga:
+
+// a) v-if / v-else-if / v-else: un semáforo que muestre
+//    "Pare", "Precaución" o "Avance" según el estado
+
+// b) v-for: renderiza una lista de tareas desde un array
+//    reactivo. Cada tarea tiene id, text e isDone
+
+// c) v-bind (:): enlaza dinámicamente clases CSS
+//    según el estado de cada tarea (completada o no)
+
+// d) v-on (@): añade eventos para:
+//    - Añadir nuevas tareas
+//    - Marcar tareas como completadas
+//    - Eliminar tareas
+
+// e) v-model: un formulario con inputs para nombre,
+//    email, y un select para el rol del usuario
+
+// f) v-show vs v-if: ¿cuál es la diferencia?
+//    Demuéstralo con un ejemplo</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.3</span> Reactividad y propiedades calculadas <span class="difficulty medium">Media</span></h3>
+<pre><code>&lt;script setup&gt;
+import { ref, computed } from 'vue';
+
+const items = ref([
+  { name: 'Manzana', price: 1.5, qty: 3 },
+  { name: 'Pan', price: 0.9, qty: 2 },
+  { name: 'Leche', price: 1.2, qty: 1 },
+]);
+
+// a) Crea un computed 'total' que calcule el precio total
+//    (price * qty para cada item, sumados)
+
+// b) Crea un computed 'itemCount' con el número total de items
+
+// c) Crea un método para añadir un nuevo item
+
+// d) Crea un método para eliminar un item por índice
+
+// e) Usa un watcher para mostrar un alert cuando el total
+//    supere los 10€
+&lt;/script&gt;</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.4</span> Formularios en Vue <span class="difficulty medium">Media</span></h3>
+<p>Crea un formulario de contacto completo en Vue con:</p>
+<ul>
+  <li>Campos: nombre, email, asunto (select), mensaje (textarea), aceptar términos (checkbox).</li>
+  <li>Validación reactiva con mensajes de error.</li>
+  <li>Uso de <code>v-model</code> con modificadores (<code>.trim</code>, <code>.number</code>, <code>.lazy</code>).</li>
+  <li>Al enviar, muestra los datos en un resumen debajo del formulario.</li>
+</ul>
+</div>
+
+<span class="unit-tag">Componentes Vue</span>
+
+<div class="exercise">
+<h3><span class="num">8.5</span> Creación de componentes <span class="difficulty medium">Media</span></h3>
+<p>Descompón una aplicación en componentes reutilizables:</p>
+<ul>
+  <li><code>AppHeader.vue</code>: barra de navegación con título y links.</li>
+  <li><code>TaskList.vue</code>: recibe un array de tareas como prop y las renderiza.</li>
+  <li><code>TaskItem.vue</code>: muestra una tarea individual. Recibe la tarea como prop.</li>
+  <li><code>TaskForm.vue</code>: formulario para añadir tareas. Emite un evento al padre con la nueva tarea.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.6</span> Props y eventos <span class="difficulty medium">Media</span></h3>
+<pre><code>// TaskItem.vue
+// a) Define props: task (Object, required), index (Number)
+// b) Emite evento 'toggle' cuando se hace clic en la tarea
+// c) Emite evento 'delete' con el índice cuando se
+//    pulsa el botón eliminar
+
+// TaskList.vue  
+// d) Recibe el array de tareas como prop
+// e) Escucha los eventos de TaskItem y los propaga al padre
+
+// App.vue
+// f) Maneja el estado global de las tareas
+// g) Escucha los eventos y modifica el array de tareas</code></pre>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.7</span> Proyecto final: App de tareas con Vue <span class="difficulty hard">Difícil</span></h3>
+<p>Crea una aplicación completa de gestión de tareas con Vue usando componentes:</p>
+<ul>
+  <li>Componentes: Header, TaskForm, TaskList, TaskItem, TaskFilter, TaskStats.</li>
+  <li>Funcionalidades: CRUD completo de tareas.</li>
+  <li>Filtros: todas, pendientes, completadas.</li>
+  <li>Estadísticas: total, completadas, pendientes, porcentaje.</li>
+  <li>Persistencia en localStorage.</li>
+  <li>Estilos con clases dinámicas según el estado.</li>
+  <li>Transiciones CSS en la lista al añadir/eliminar tareas.</li>
+</ul>
+</div>
+
+<div class="exercise">
+<h3><span class="num">8.8</span> Fetch en Vue <span class="difficulty hard">Difícil</span></h3>
+<p>Crea una aplicación Vue que consuma una API REST:</p>
+<ul>
+  <li>Usa <code>fetch</code> o <code>axios</code> dentro de <code>onMounted</code> para cargar datos.</li>
+  <li>Muestra un spinner mientras se cargan los datos.</li>
+  <li>Maneja errores mostrando un componente de error.</li>
+  <li>Implementa paginación o scroll infinito.</li>
+  <li>API sugerida: JSONPlaceholder, PokeAPI o cualquier API pública.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div style="text-align:center; padding: 2rem 0; color: var(--muted); font-size: .9rem;">
+  <p>🎯 <strong>Consejo:</strong> Trabaja cada semana siguiendo el calendario. Sube tus ejercicios a GitHub en el repositorio <code>2026-dwcc-recuperacion-oTeuLogin</code>.</p>
+  <p>Organiza cada unidad en su propia carpeta dentro del repositorio.</p>
+</div>
+
+</div>
+</body>
+</html>
