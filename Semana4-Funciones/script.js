@@ -158,3 +158,30 @@ console.log(items);
 // 3.6 Expresiones regulares
 
 // Crea funciones que validen los siguientes formatos usando expresiones regulares:
+
+//Crea funciones que validen los siguientes formatos usando expresiones regulares:
+
+//isValidEmail(email): formato básico (contiene @ y dominio con punto).
+
+//isValidPhone(phone): 9 dígitos, puede empezar con +34.
+
+//isValidPassword(pwd): mínimo 8 caracteres, al menos una mayúscula, una minúscula y un número.
+
+//extractHashtags(text): extrae todos los hashtags (#palabra) de un texto.
+
+// 3.7 Closures y funciones de orden superior
+
+// a) Crea una función 'counter()' que devuelva una función.
+// Cada vez que se llame a la función devuelta, debe incrementar
+// y devolver un contador interno.
+const count = counter();
+console.log(count()); // 1
+console.log(count()); // 2
+console.log(count()); // 3
+
+// b) Crea una función 'multiplier(factor)' que devuelva
+// una función que multiplique su argumento por factor
+const double = multiplier(2);
+const triple = multiplier(3);
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
