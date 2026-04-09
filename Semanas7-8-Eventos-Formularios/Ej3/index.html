@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación de Registro</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="registration-card">
+      <h2>Crear Cuenta</h2>
+      <form id="registrationForm">
+        <div class="form-control">
+          <label for="username">Nombre completo</label>
+          <input type="text" id="username" placeholder="Tu nombre..." />
+          <small class="error-msg" id="nameError"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" />
+          <small class="error-msg" id="emailError"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Mínimo 8 caracteres..."
+          />
+          <small class="error-msg" id="passError"></small>
+        </div>
+
+        <div class="form-control">
+          <label for="confirmPassword">Confirmar contraseña</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Repite tu contraseña..."
+          />
+          <small class="error-msg" id="confirmError"></small>
+        </div>
+
+        <button type="submit" id="submitBtn" disabled>Registrarse</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
