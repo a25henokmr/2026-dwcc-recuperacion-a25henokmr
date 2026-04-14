@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de la Compra Pro</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="shop-container">
+      <h1>🛒 Mi Compra</h1>
+
+      <div class="input-section">
+        <input type="text" id="productInput" placeholder="Producto..." />
+        <input type="number" id="amountInput" value="1" min="1" />
+        <button id="addBtn">Añadir</button>
+      </div>
+
+      <div class="stats">
+        <span id="pendingCount">Pendientes: 0</span>
+        <span id="boughtCount">Comprados: 0</span>
+      </div>
+
+      <ul id="shoppingList"></ul>
+
+      <button id="clearAllBtn" class="danger-btn">Limpiar Lista</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

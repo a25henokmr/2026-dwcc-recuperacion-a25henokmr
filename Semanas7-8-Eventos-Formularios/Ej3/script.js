@@ -15,3 +15,10 @@ nombre.addEventListener('input', () => {
     botonEnviar.disabled = false;
   }
 });
+
+const inputCont = document.querySelector('#password');
+const contErr = document.querySelector('#passError');
+
+inputCont.addEventListener('input', () => {
+    if(inputCont.length < 8 && inputCont.co)
+});
